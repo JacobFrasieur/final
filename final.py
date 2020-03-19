@@ -9,40 +9,40 @@ import time
 def intialize():
     """Loads necessary game aspects."""
     pygame.init()
-    width, height = 640, 480
-    screen = pygame.display.set_mode((width, height))
-    score = 0
+    Width, Height = 640, 480
+    Screen = pygame.display.set_mode((Width, Height))
+    Score = 0
     Player = pygame.image.load("resources/images/player_character.png")
     Dungeon_Flooring = pygame.image.load("resources/images/dungeon_flooring.png")
     Coin = pygame.image.load("resources/images/coin.png")
 
 def stopwatch(seconds):
     """Time based functions."""
-    start = time.time()
+    Start = time.time()
     time.clock()
-    elapsed = 0
-    while elapsed < seconds:
-        elapsed = time.time() - start
-        score += 100
+    Elapsed = 0
+    while Elapsed < seconds:
+        Elapsed = time.time() - Start
+        Score += 100
 print("Get to the other side without being hit by the yellow blobs!")
 def movement():
     """General position code"""
-    keys = [False, False, False, False]
+    Keys = [False, False, False, False]
     Playerpos=[100,100]
 
     while 1:
-        x = random.randint(0,640)
-        y = random.randint(0,480)
-        coinpos = [x,y]
-        screen.blit(Coin,coinpos)
+        X = random.randint(0,640)
+        Y = random.randint(0,480)
+        coinpos = [X,Y]
+        Screen.blit(Coin,coinpos)
 
         if Playerpos == coinpos:
             Playerpos = [100,100]
         if Playerpos == [640,480]:
             print("Congrats! You did it!")
         pygame.display.flip()
-        screen.fill(0)
-        screen.blit(Player, Playerpos)
+        Screen.fill(0)
+        Screen.blit(Player, Playerpos)
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type==pygame.QUIT:
